@@ -1,5 +1,5 @@
-import type { StackFrame } from 'error-stack-parser-es'
-import { parse } from 'error-stack-parser-es'
+import type { StackFrameLite } from 'error-stack-parser-es/lite'
+import { parse } from 'error-stack-parser-es/lite'
 
 // @ts-expect-error missing globalThis type
 const map = globalThis.__TRACE_RECORD_MAP__ = new WeakMap<any, Error>()
@@ -23,7 +23,7 @@ export function getTraceRaw<T extends WeakKey>(_arg: T): string | undefined {
   return map.get(_arg)?.stack
 }
 
-export function getTrace<T extends WeakKey>(_arg: T): StackFrame[] | undefined {
+export function getTrace<T extends WeakKey>(_arg: T): StackFrameLite[] | undefined {
   const stack = map.get(_arg)
   return stack
     ? parse(stack)
