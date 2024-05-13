@@ -2,10 +2,9 @@ import type { StackFrameLite } from 'error-stack-parser-es/lite'
 import { parse } from 'error-stack-parser-es/lite'
 
 // @ts-expect-error missing globalThis type
-const map = globalThis.__TRACE_RECORD_MAP__ = new WeakMap<any, Error>()
-
-// @ts-expect-error missing globalThis type
-if (!globalThis.__TRACE_RECORD_MAP__) {
+let map = globalThis.__TRACE_RECORD_MAP__
+if (!map) {
+  map = new WeakMap<any, Error>()
   Object.defineProperty(globalThis, '__TRACE_RECORD_MAP__', {
     value: map,
     writable: false,
