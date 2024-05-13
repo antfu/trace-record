@@ -1,7 +1,7 @@
 {
   "name": "trace-record",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "packageManager": "pnpm@9.1.1",
   "description": "Get the stack trace of the creation of objects",
   "author": "Anthony Fu <anthonyfu117@hotmail.com>",
