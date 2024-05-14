@@ -1,6 +1,9 @@
 import type { StackFrameLite } from 'error-stack-parser-es/lite'
+import type { TraceObject } from './types'
 
-export function record<T extends WeakKey>(arg: T) {
+export * from './types'
+
+export function record<T extends WeakKey>(arg: T, _object?: TraceObject) {
   return arg
 }
 
